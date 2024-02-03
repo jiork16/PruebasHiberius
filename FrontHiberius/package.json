@@ -1,0 +1,23 @@
+{
+  "name": "fronthiberius",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/compat": "^3.4.15",
+    "axios": "^1.6.7",
+    "bootstrap-vue": "^2.23.1",
+    "sass": "^1.70.0",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "vite": "^5.0.11"
+  }
+}
