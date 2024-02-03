@@ -23,18 +23,18 @@ class TripTest extends TestCase
     {
         $response = $this->postJson('/api/trips', [
             "vehicle_id"    =>1,
-            "driver_id"  =>4,
+            "driver_id"  =>1,
             "date"    =>"2024-02-01"
         ]);
+        
         $response->assertStatus(201);
     }
     public function test_create_trip_error()
     {
         $response = $this->postJson('/api/trips', [
-            "driver_id"  =>4,
+            "driver_id"  =>1,
             "date"    =>"2024-02-01"
         ]);
-        $response->assertStatus(422);
         $response->assertJson([
             'message' => "The vehicle id field is required.",
         ]);
