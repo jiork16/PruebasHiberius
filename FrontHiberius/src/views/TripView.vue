@@ -9,7 +9,7 @@
       <div class="col-md-4 mb-3">
         <label>Vehiculo</label>
         <div class="form-group">
-          <select class="custom-select" v-model="selectedVehicle">
+          <select class="custom-select" v-model="selectedVehicle" required>
             <option disabled value="0">Seleccione un Vehiculo</option>
             <option v-for="item in vehicle" v-bind:value="item.id">
               {{ item.brand }} - {{ item.model }}
@@ -20,7 +20,7 @@
       <div class="col-md-4 mb-3">
         <label>Conductor</label>
         <div class="form-group">
-          <select class="custom-select" v-model="selectedDrive">
+          <select class="custom-select" v-model="selectedDrive" required>
             <option disabled value="0">Seleccione un Conductor</option>
             <option v-for="item in driver" v-bind:value="item.id">
               {{ item.name }}-{{ item.surname }}

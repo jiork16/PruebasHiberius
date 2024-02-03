@@ -14,6 +14,7 @@ class VehicleController extends Controller
     public function index(){
         $query = VehicleResource::collection(
                     QueryBuilder::for(Vehicle::class)
+                    ->paginate(25)
                 )->response()->getData(true);
         return $this->success(
             [

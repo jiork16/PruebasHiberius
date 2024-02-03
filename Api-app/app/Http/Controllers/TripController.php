@@ -15,6 +15,7 @@ class TripController extends Controller
     public function index(){
         $query = TripResource::collection(
                     QueryBuilder::for(Trip::class)
+                    ->paginate(25)
                 )->response()->getData(true);
         return $this->success(
             [

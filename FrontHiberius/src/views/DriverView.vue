@@ -6,19 +6,19 @@
       <label>Nombre</label>
       <input type="text" class="form-control" 
       v-model="form.name"
-      placeholder="Nombre">
+      placeholder="Nombre" required>
     </div>
     <div class="col-md-4 mb-3">
       <label>Apellido</label>
       <input type="text" class="form-control" 
       v-model="form.surname"
-      placeholder="Apellido">
+      placeholder="Apellido" required>
     </div>
     <div class="col-md-4 mb-3">
       <label>Licencia</label>
       <input type="text" class="form-control" 
       v-model="form.license"
-      placeholder="Licencia">
+      placeholder="Licencia" required>
     </div>
   </div>
   <div>

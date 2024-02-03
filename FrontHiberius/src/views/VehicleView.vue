@@ -6,19 +6,19 @@
         <label>Marca</label>
         <input type="text" class="form-control" 
         v-model="form.brand"
-        placeholder="Nombre">
+        placeholder="Nombre" required>
       </div>
       <div class="col-md-4 mb-3">
         <label>Modelo</label>
         <input type="text" class="form-control" 
         v-model="form.model"
-        placeholder="Apellido">
+        placeholder="Apellido" required>
       </div>
       <div class="col-md-4 mb-3">
         <label>Licencia</label>
         <input type="text" class="form-control" 
         v-model="form.license"
-        placeholder="Licencia">
+        placeholder="Licencia" required>
       </div>
     </div>
     <div>
