@@ -17,8 +17,8 @@ class TripFactory extends Factory
     public function definition()
     {
         return [
-            'vehicle_id' => mt_rand(1, 10),
-            'driver_id' => mt_rand(1, 10),
+            'vehicle_id' => mt_rand(1, 3),
+            'driver_id' => mt_rand(1, 3),
             'date' => $this->faker->dateTimeInInterval('-1 week', '+3 days')
         ];
     }
