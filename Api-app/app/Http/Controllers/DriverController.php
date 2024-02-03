@@ -25,7 +25,6 @@ class DriverController extends Controller
     public function index(){
         $query = DriverResource::collection(
                     QueryBuilder::for(Driver::class)
-                    ->paginate(5)
                 )->response()->getData(true);
         return $this->success(
             [
