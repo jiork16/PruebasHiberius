@@ -15,10 +15,8 @@ RUN apt-get update -y && apt-get install -y \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev 
-
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
 # PHP Extension
 RUN docker-php-ext-install gettext intl pdo_mysql gd
 
