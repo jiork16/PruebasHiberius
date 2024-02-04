@@ -27,6 +27,8 @@
   </template>
   <script>
     import axios from "axios";
+  // * @author Jordan Rodriguez
+  // * constante que contine la instacia creada para peticiones http
     const axiosInstance = axios.create({
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -42,16 +44,6 @@
           type: Boolean,
           required: false,
           default: false
-        },
-        refresh_data_filter: {
-          type: Boolean,
-          required: false,
-          default: false
-        },
-        form_search: {
-          type: Object,
-          required: false,
-          default: () => {}
         }
       },
       data: () => ({
@@ -67,13 +59,6 @@
             this.getListDrivers();
           }      
         }
-      },
-      refresh_data_filter: {
-        handler: function(newVal) {
-          if (newVal === true) {
-            this.getListDriversIndex();
-          }      
-        }
       }
     },
       methods: {
@@ -83,14 +68,6 @@
         getListDrivers() {
           axiosInstance.get(import.meta.env.VITE_API_URL+"drivers").then((response) => {
             this.drivers=response.data.Drivers;
-          }).catch((error) =>{
-            console.log(error);
-          });
-        },
-        getListDriversIndex() {
-          axiosInstance.post(import.meta.env.VITE_API_URL+"drivers/index").then((response) => {
-            this.drivers=response.data;
-            this.$emit("setDatachild_filter")
           }).catch((error) =>{
             console.log(error);
           });

@@ -41,6 +41,8 @@
   import NavbarView from "@/views/Layouts/NavbarView.vue";
   import ListTripComponent from "@/components/ListTripComponent.vue";
   import axios from "axios";
+  // * @author Jordan Rodriguez
+  // * constante que contine la instacia creada para peticiones http
   const axiosInstance = axios.create({
     headers: {
       "Access-Control-Allow-Origin": "*",

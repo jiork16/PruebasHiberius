@@ -27,6 +27,8 @@
 </template>
 <script>
   import axios from "axios";
+  // * @author Jordan Rodriguez
+  // * constante que contine la instacia creada para peticiones http
   const axiosInstance = axios.create({
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -42,16 +44,6 @@
         type: Boolean,
         required: false,
         default: false
-      },
-      refresh_data_filter: {
-        type: Boolean,
-        required: false,
-        default: false
-      },
-      form_search: {
-        type: Object,
-        required: false,
-        default: () => {}
       }
     },
     data: () => ({
