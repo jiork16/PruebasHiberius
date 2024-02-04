@@ -33,9 +33,12 @@ class TripController extends Controller
      */
     public function store(CreateTripRequest $request){
         $data = $request->validated();
-        
-        $drive = Trip::create($data);
-        
+        $trip = Trip::ExistsTrip($request->vehicle_id, $request->driver_id, $request->date)->get();
+        if($trip->isEmpty()){
+            $drive = Trip::create($data);
+        }else{
+            return $this->error(400,"Ya existe un viaje asignado para ese auto y conductor en esa fecha");
+        }
         return empty($drive)
             ?   $this->error(500,"No se pudo crear el conductor.")
             :   $this->success([
@@ -87,11 +90,8 @@ class TripController extends Controller
     */
     public function delete(int $vehicle_id, int $driver_id, $date){
         try {
-            $trip = Trip::where([
-                ['vehicle_id', $vehicle_id],
-                ['driver_id', $driver_id],
-                ])->whereDate('date', $date);
-            if(empty($trip)){
+            $trip = Trip::ExistsTrip($vehicle_id, $driver_id, $date)->get();
+            if($trip->isEmpty()){
                 return $this->error(404,"No se encontró un registro del viaje.");
             }
             $trip->delete();
@@ -113,7 +113,7 @@ class TripController extends Controller
     public function freeDrivers(string $license,$date){
         try {
             $trips = Trip::FreeDrivers($license,$date)->get();
-            if(empty($trips)){
+            if($trips->isEmpty()){
                 return $this->error(404,"No se encontró viaje disponibles.");
             }
             return $this->success(
