@@ -106,7 +106,7 @@ class VehicleController extends Controller
     public function FreeVehicles($date){
         try {
             $vehicles = Vehicle::FreeVehicles($date)->get();
-            if(empty($vehicles)){
+            if($vehicles->isEmpty()){
                 return $this->error(404,"No se encontró conductores disponibles.");
             }
             return $this->success(

@@ -118,7 +118,7 @@ class DriverController extends Controller
     public function freeDrivers(string $license,$date){
         try {
             $drivers = Driver::FreeDrivers($license,$date)->get();
-            if(empty($drivers)){
+            if($drivers->isEmpty()){
                 return $this->error(404,"No se encontró conductores disponibles.");
             }
             return $this->success(
