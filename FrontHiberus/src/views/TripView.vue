@@ -113,7 +113,7 @@
         axiosInstance.get(import.meta.env.VITE_API_URL+"vehicles/free/"+this.form.date).then((response) => {
           this.vehicle=response.data.vehicles;
         }).catch((error) =>{
-          console.log(error)
+          alert(error.response.data.message);
           this.refresh_data_child=false;
         });
       },
@@ -122,7 +122,7 @@
           this.driver=response.data.drivers;
         }).catch((error) =>{
           this.refresh_data_child=false
-          alert(error.response.data.detail);
+          alert(error.response.data.message);
         });
       }
     },
